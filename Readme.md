@@ -1,124 +1,152 @@
- # API Structure Summary
- 
-# Auth (User + Admin):
+# ⚡ EV Charging Station – MERN Full Stack Application
 
-POST /auth/register
+A full‑stack EV Charging Station Management & Booking platform built using the MERN stack. This project allows users to find EV stations and book charging slots, while admins can manage stations, users, and view analytics.
 
-{
-  "name": "",
-  "email": "",
-  "password": "",
-  "role": "user" or "admin"
-}
+---
 
+# 🚀 Tech Stack
 
-POST /auth/login
+## Frontend
 
-GET /auth/me (Protected)
-  Get logged-in user’s profile.
+* React.js
+* Tailwind CSS
+* React Router
+* Context API (Global State Management)
+* Recharts (Analytics & Charts)
 
+## Backend
 
-# Admin - STATION MANAGEMENT APIs:
+* Node.js
+* Express.js
+* MongoDB + Mongoose
+* JWT Authentication
+* Role Based Authorization (User / Admin)
 
-POST /admin/station/create
-    Create a new EV charging station.
+---
 
-{
-  "name": "",
-  "address": "",
-  "location": {
-    "lat": 0.0,
-    "lng": 0.0
-  },
-  "totalSlots": 10
-}
+# 👤 User Features
 
+* User Registration & Login
+* Secure JWT Authentication
+* Role Based Protected Routes
+* View All EV Charging Stations
+* Book Charging Slots
+* Responsive Modern UI
 
-PUT /admin/station/update/:id
+---
 
-DELETE /admin/station/delete/:id
+# 🛠️ Admin Features
 
-GET /admin/station/all
+Admin has full control over the platform:
 
+### 🔐 Authentication
 
+* Admin Login
+* Role Based Access Control
 
-# User - FIND STATIONS APIs
+### ⚡ Station Management APIs
 
-GET /station/nearby?lat=XX&lng=YY&distance=KM
+* Create EV Station
+* Get All Stations
+* Update Station
+* Delete Station
 
-Find stations near user location.
+### 📅 Booking Management
 
-Query params:
+* Station Slot Booking API
+* View Booking Data
 
-lat
+### 📊 Analytics Dashboard
 
-lng
+* Admin Analysis API
+* Visual Bar Charts using Recharts
 
-distance (optional, default 10 km)
+---
 
+# 🔑 Key Concepts Implemented
 
-GET /station/:id
- Get single station details.
+* JWT Authentication
+* Role Based Authorization
+* Protected Routes
+* RESTful API Design
+* Global State Management using Context API
+* Full CRUD Operations
+* Dashboard Analytics
 
-GET /station/all
-  Get all stations (map display).
+---
 
+# 📂 Project Structure
 
-# User - SLOT VIEW APIs (User):
+## Backend
 
-GET /slot/station/:stationId
+```
+backend/
+ ├── controllers
+ ├── models
+ ├── routes
+ ├── middleware
+ ├── server.js
+```
 
-  Show all slots of a station.
+## Frontend
 
-User sees:-
+```
+frontend/
+ ├── pages
+ ├── components
+ ├── context
+ ├── routes
+ ├── charts
+```
 
-     Empty slots
+---
 
-     Booked slot
+# ⚙️ Installation & Setup
 
-# Bookings:
+## 1 Backend Setup
 
-POST /booking/create
+```bash
+cd backend
+npm install
+npm start
+```
 
-   {
-  "userId": "",
-  "stationId": "",
-  "slotId": "",
-  "startTime": "",
-  "endTime": ""
-}
+Create `.env` file:
 
+```
+MONGO_URI=your_mongodb_connection
+JWT_SECRET=your_secret
+```
 
-PUT /booking/cancel/:id
-  Cancel booking (user).
+## 2 Frontend Setup
 
-GET /booking/user/:id
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-  Get all bookings of logged-in user.
+---
 
-GET /booking/station/:stationId
-   Admin sees all bookings for a station.
+# 🌐 Deployment
 
-# Admin Analytics:
+This project can be deployed using:
 
-GET /admin/analytics/overview
+* Backend → Render Web Service
+* Frontend → Render Static Site
+* Database → MongoDB Atlas
 
-Returns:-
+---
 
-  Total stations
+# 📊 Future Improvements
 
-  Total slots
+* Online Payment Integration
+* Real‑time Slot Availability
+* Map Integration for Nearby Stations
+* Notifications & Email Alerts
 
-  Total bookings
+---
 
-  Available vs booked slots 
+# 🙌 Author
 
- GET /admin/analytics/station/:stationId
-
-Analytics for one station:-
-
-  Total slots
-
-  Booked slots
-
-  Active users
+Built with ❤️ as a Full Stack MERN Project.
