@@ -9,7 +9,7 @@ const usestation = () => {
     try {
       setLoading(true);
       const res = await axios.get(
-        "http://localhost:3000/EvStation/admin/station/get",
+        "https://ev-charging-station-backend-7ufb.onrender.com/EvStation/admin/station/get",
         { withCredentials: true }
       );
       setStations(res.data.stations);
