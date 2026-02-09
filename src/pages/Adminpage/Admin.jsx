@@ -30,7 +30,7 @@ const Admin = () => {
   useEffect(() => {
     const fetchAnalysisData = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/EvStation/admin/Analysis", { withCredentials: true })
+        const res = await axios.get("https://ev-charging-station-backend-7ufb.onrender.com/EvStation/admin/Analysis", { withCredentials: true })
         setanalysisdata(res.data?.data || null)
 
       } catch (error) {
@@ -243,7 +243,7 @@ const Admin = () => {
               <ul className="space-y-1">
                 <li>Home</li>
                 <li>Stations</li>
-                <li>Wallet</li>
+                <li>About Us</li>
                 <li>Login</li>
               </ul>
             </div>

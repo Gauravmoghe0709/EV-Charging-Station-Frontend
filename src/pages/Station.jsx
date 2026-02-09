@@ -1,4 +1,4 @@
-import { Search, Zap } from "lucide-react";
+import { Zap } from "lucide-react";
 import Navbar from "../components/Navbar";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
@@ -25,7 +25,7 @@ const Station = () => {
   const getCoords = async (address) => {
     try {
       const res = await axios.get(
-        "http://localhost:3000/EvStation/location/coords",
+        "https://ev-charging-station-backend-7ufb.onrender.com/EvStation/location/coords",
         { params: { address } }
       );
       return res.data;
@@ -52,7 +52,7 @@ const Station = () => {
       if (!coords) return;
 
       const res = await axios.get(
-        "http://localhost:3000/EvStation/station/findnearby",
+        "https://ev-charging-station-backend-7ufb.onrender.com/EvStation/station/findnearby",
         {
           params: {
             latitude: coords.latitude,

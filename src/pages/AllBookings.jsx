@@ -11,7 +11,7 @@ const AllBookings = () => {
     const [Error, setError] = useState("")
     async function getbooking() {
         try {
-            const res = await axios.get("http://localhost:3000/EvStation/getallbookings", { withCredentials: true })
+            const res = await axios.get("https://ev-charging-station-backend-7ufb.onrender.com/EvStation/getallbookings", { withCredentials: true })
             console.log(res.data.bookings)
             setBookingdata(res.data.bookings)
             setError("")
@@ -32,7 +32,7 @@ const AllBookings = () => {
 
     async function canclebooking(id){
         try {
-            const res = await axios.delete(`http://localhost:3000/EvStation/cancelbooking/${id}`,{withCredentials:true})
+            const res = await axios.delete(`https://ev-charging-station-backend-7ufb.onrender.com/EvStation/cancelbooking/${id}`,{withCredentials:true})
             console.log(res)
             getbooking()
         } catch (error) {

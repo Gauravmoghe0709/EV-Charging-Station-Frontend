@@ -12,7 +12,7 @@ const Register = () => {
   const handleregister = async(e) => {
     e.preventDefault()
     try {
-      const res = await axios.post("http://localhost:3000/EvStation/register",{
+      const res = await axios.post("https://ev-charging-station-backend-7ufb.onrender.com/EvStation/register",{
         name,email,password,role
       },{withCredentials:true})
       console.log(res)

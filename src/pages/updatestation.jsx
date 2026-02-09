@@ -21,7 +21,7 @@ export default function UpdateStation() {
   const handleSubmit = async(e) => {
     e.preventDefault();
    try {
-    const res = await axios.put(`http://localhost:3000/EvStation/admin/station/update/${id}`,{
+    const res = await axios.put(`https://ev-charging-station-backend-7ufb.onrender.com/EvStation/admin/station/update/${id}`,{
       name,address,totalSlots,status
     },{withCredentials:true}) 
     console.log(res)

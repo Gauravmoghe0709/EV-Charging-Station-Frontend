@@ -54,7 +54,7 @@ async function addressToCoords() {
       return
     }
     try {
-      const res = await axios.post("http://localhost:3000/EvStation/admin/station/create",{
+      const res = await axios.post("https://ev-charging-station-backend-7ufb.onrender.com/EvStation/admin/station/create",{
       name,address,totalslots,latitude,longitude,status:"ACTIVE"
     },{withCredentials:true})
     console.log(res.data)

@@ -16,7 +16,7 @@ const Booking = () => {
 
   const fetchstationdata = async()=>{
     try {
-      const res = await axios.get(`http://localhost:3000/EvStation/station/${id}`,{withCredentials:true})
+      const res = await axios.get(`https://ev-charging-station-backend-7ufb.onrender.com/EvStation/station/${id}`,{withCredentials:true})
       const {station}= res.data
      setstation(station)
     } catch (error) {
@@ -38,7 +38,7 @@ const Booking = () => {
       setLoading(true);
 
       const res = await axios.post(
-        `http://localhost:3000/EvStation/createbooking`,
+        `https://ev-charging-station-backend-7ufb.onrender.com/EvStation/createbooking`,
         {
           stationId,
           startTime,

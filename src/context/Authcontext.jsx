@@ -16,7 +16,7 @@ const Authprovider = ({ children }) => {
   useEffect(()=>{
      const currentuser = async()=>{
     try {
-      const res = await axios.get("http://localhost:3000/EvStation/aboutme",{withCredentials:true})
+      const res = await axios.get("https://ev-charging-station-backend-7ufb.onrender.com/EvStation/aboutme",{withCredentials:true})
       setuser(res.data.user)
 
     } catch (error) {
@@ -32,7 +32,7 @@ const Authprovider = ({ children }) => {
 
   const login = async (formdata) => {
     try {
-      const res = await axios.post("http://localhost:3000/EvStation/login",
+      const res = await axios.post("https://ev-charging-station-backend-7ufb.onrender.com/EvStation/login",
         formdata, { withCredentials: true })
       setuser(res.data.user)
       setLoading(false)
@@ -56,7 +56,7 @@ const Authprovider = ({ children }) => {
 
   const logout = async () => {
     try {
-     await axios.post("http://localhost:3000/EvStation/logout",{},{withCredentials:true})
+     await axios.post("https://ev-charging-station-backend-7ufb.onrender.com/EvStation/logout",{},{withCredentials:true})
       setuser(null)
       toast.success("Logout Sucessfully")
     } catch (error) {

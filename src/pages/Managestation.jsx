@@ -21,7 +21,7 @@ const ManageStations = () => {
   const handleDelete = async (id) => {
     try {
       await axios.delete(
-        `http://localhost:3000/EvStation/admin/station/deletestation/${id}`,
+        `https://ev-charging-station-backend-7ufb.onrender.com/EvStation/admin/station/deletestation/${id}`,
         { withCredentials: true }
       );
       toast.success("Station Deleted Successfully");
