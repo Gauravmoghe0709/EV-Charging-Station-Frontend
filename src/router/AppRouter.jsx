@@ -16,29 +16,25 @@ import AllBookings from "../pages/AllBookings"
 
 const AppRouter = () => {
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/login" element={<Login></Login>}></Route>
-        <Route path="/About" element={<About></About>}></Route>
-        <Route path="/register" element={<Register></Register>}></Route>
-        <Route path="/Booking/:id" element={<Booking></Booking>}></Route>
-        <Route path="/Station" element={<Station></Station>}></Route>
-        <Route path="/MyBooking" element={<AllBookings></AllBookings>}></Route>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/About" element={<About />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/Booking/:id" element={<Booking />} />
+      <Route path="/Station" element={<Station />} />
+      <Route path="/MyBooking" element={<AllBookings />} />
+      <Route path="/Accessdenied" element={<Accessdenied />} />
+      <Route path="/Managebooking" element={<ManageBookings />} />
 
-        <Route path="/admin" element={<Protectedroute role="Admin"></Protectedroute>}>
-              <Route index element={<Admin></Admin>}></Route>
-              <Route path="/admin/createstation" element={<Createstation></Createstation>}></Route>
-              <Route path="/admin/updateStation/:id" element={<UpdateStation></UpdateStation>}></Route>
-              <Route path="/admin/manageStations" element={<ManageStations></ManageStations>}></Route>
-        </Route>
-
- 
-        <Route path="/Accessdenied" element={<Accessdenied></Accessdenied>}></Route>
-        <Route path="/Managebooking" element={<ManageBookings></ManageBookings>}></Route>
-
-      </Routes>
-    </>
+      {/* ⭐ ADMIN PROTECTED ROUTES */}
+      <Route element={<Protectedroute role="Admin" />}>
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/createstation" element={<Createstation />} />
+        <Route path="/admin/updateStation/:id" element={<UpdateStation />} />
+        <Route path="/admin/manageStations" element={<ManageStations />} />
+      </Route>
+    </Routes>
   )
 }
 

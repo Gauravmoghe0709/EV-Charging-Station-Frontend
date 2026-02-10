@@ -35,7 +35,7 @@ const Authprovider = ({ children }) => {
       const res = await axios.post("/EvStation/login",
         formdata, { withCredentials: true })
       setuser(res.data.user)
-      setLoading(false)
+      console.log(res.data)
        toast.success("Login sucessfully")
 
       if (res.data.user.role === "Admin") {
