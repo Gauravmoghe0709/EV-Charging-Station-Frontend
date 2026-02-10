@@ -18,14 +18,12 @@ const Login = () => {
     setloading(true);
     
     try {
-      const sucess = await login({
-      email,
-      password
-    })
-    if(sucess){
-    setTimeout(()=>{
-      navigate("/")
-    },2000)}
+      const sucess = await login({ email, password });
+      setloading(false);
+      if (!sucess) {
+        // keep user on login page if authentication failed
+        return;
+      }
     } catch (error) {
       setloading(false);
       console.log(error);
