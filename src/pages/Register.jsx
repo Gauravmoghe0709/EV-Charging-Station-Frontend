@@ -1,6 +1,6 @@
 import {  Lock, User, UserCogIcon, MailIcon,PlugZapIcon } from "lucide-react";
 import { useState } from "react";
-import axios from "axios"
+import axios from "../utils/axios"
 import { useNavigate } from "react-router-dom";
 const Register = () => {
   const navigate = useNavigate()
@@ -12,7 +12,7 @@ const Register = () => {
   const handleregister = async(e) => {
     e.preventDefault()
     try {
-      const res = await axios.post("https://ev-charging-station-backend-7ufb.onrender.com/EvStation/register",{
+      const res = await axios.post("/EvStation/register",{
         name,email,password,role
       },{withCredentials:true})
       console.log(res)

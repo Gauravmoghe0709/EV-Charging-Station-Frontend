@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "../utils/axios";
 import { toast } from "react-toastify";
 import { Calendar, Clock, MapPin, Zap } from "lucide-react";
 import { useParams,useNavigate } from "react-router-dom";
@@ -16,7 +16,7 @@ const Booking = () => {
 
   const fetchstationdata = async()=>{
     try {
-      const res = await axios.get(`https://ev-charging-station-backend-7ufb.onrender.com/EvStation/station/${id}`,{withCredentials:true})
+      const res = await axios.get(`/EvStation/station/${id}`,{withCredentials:true})
       const {station}= res.data
      setstation(station)
     } catch (error) {
@@ -38,7 +38,7 @@ const Booking = () => {
       setLoading(true);
 
       const res = await axios.post(
-        `https://ev-charging-station-backend-7ufb.onrender.com/EvStation/createbooking`,
+        `/EvStation/createbooking`,
         {
           stationId,
           startTime,
@@ -106,7 +106,6 @@ const Booking = () => {
           </div>
         </div>
 
-        {/* End Time */}
         <div className="mb-6">
           <label className="text-sm font-medium text-gray-600">
             End Time

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "../utils/axios";
 
 const usestation = () => {
   const [stations, setStations] = useState([]);
@@ -9,7 +9,7 @@ const usestation = () => {
     try {
       setLoading(true);
       const res = await axios.get(
-        "https://ev-charging-station-backend-7ufb.onrender.com/EvStation/admin/station/get",
+        "/EvStation/admin/station/get",
         { withCredentials: true }
       );
       setStations(res.data.stations);

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Save, Building2 } from "lucide-react";
-import axios from "axios";
+import axios from "../utils/axios";
 import { useParams,useNavigate } from "react-router-dom";
 
 
@@ -21,7 +21,7 @@ export default function UpdateStation() {
   const handleSubmit = async(e) => {
     e.preventDefault();
    try {
-    const res = await axios.put(`https://ev-charging-station-backend-7ufb.onrender.com/EvStation/admin/station/update/${id}`,{
+    const res = await axios.put(`/EvStation/admin/station/update/${id}`,{
       name,address,totalSlots,status
     },{withCredentials:true}) 
     console.log(res)

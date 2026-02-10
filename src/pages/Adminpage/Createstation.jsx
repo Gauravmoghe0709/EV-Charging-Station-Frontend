@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { toast } from "react-toastify"
-import axios from "axios"
+import axios from "../../utils/axios"
 import { useNavigate } from "react-router-dom"
 
 const Createstation = () => {
@@ -54,7 +54,7 @@ async function addressToCoords() {
       return
     }
     try {
-      const res = await axios.post("https://ev-charging-station-backend-7ufb.onrender.com/EvStation/admin/station/create",{
+      const res = await axios.post("/EvStation/admin/station/create",{
       name,address,totalslots,latitude,longitude,status:"ACTIVE"
     },{withCredentials:true})
     console.log(res.data)

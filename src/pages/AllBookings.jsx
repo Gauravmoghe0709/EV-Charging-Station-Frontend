@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from "../utils/axios"
 import { useEffect, useState } from "react"
 import { Zap } from "lucide-react"
 import Navbar from "../components/Navbar"
@@ -11,7 +11,7 @@ const AllBookings = () => {
     const [Error, setError] = useState("")
     async function getbooking() {
         try {
-            const res = await axios.get("https://ev-charging-station-backend-7ufb.onrender.com/EvStation/getallbookings", { withCredentials: true })
+            const res = await axios.get("/EvStation/getallbookings", { withCredentials: true })
             console.log(res.data.bookings)
             setBookingdata(res.data.bookings)
             setError("")
@@ -32,7 +32,7 @@ const AllBookings = () => {
 
     async function canclebooking(id){
         try {
-            const res = await axios.delete(`https://ev-charging-station-backend-7ufb.onrender.com/EvStation/cancelbooking/${id}`,{withCredentials:true})
+            const res = await axios.delete(`/EvStation/cancelbooking/${id}`,{withCredentials:true})
             console.log(res)
             getbooking()
         } catch (error) {

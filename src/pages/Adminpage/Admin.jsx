@@ -16,7 +16,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { Authcontext } from '../../context/Authcontext';
 import { useState, useContext, useEffect } from "react";
-import axios from "axios"
+import axios from "../../utils/axios"
 import usestations from "../../hooks/getstations";
 
 const Admin = () => {
@@ -30,7 +30,7 @@ const Admin = () => {
   useEffect(() => {
     const fetchAnalysisData = async () => {
       try {
-        const res = await axios.get("https://ev-charging-station-backend-7ufb.onrender.com/EvStation/admin/Analysis", { withCredentials: true })
+        const res = await axios.get("/EvStation/admin/Analysis", { withCredentials: true })
         setanalysisdata(res.data?.data || null)
 
       } catch (error) {

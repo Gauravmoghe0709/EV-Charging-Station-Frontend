@@ -1,6 +1,6 @@
 import { Zap, Edit, Ban, X, Menu } from "lucide-react";
 import { useNavigate, Link } from "react-router-dom";
-import axios from "axios";
+import axios from "../utils/axios";
 import { useState, useContext } from "react";
 import { toast } from "react-toastify";
 import MapComponent from "../components/MapComponent";
@@ -21,7 +21,7 @@ const ManageStations = () => {
   const handleDelete = async (id) => {
     try {
       await axios.delete(
-        `https://ev-charging-station-backend-7ufb.onrender.com/EvStation/admin/station/deletestation/${id}`,
+        `/EvStation/admin/station/deletestation/${id}`,
         { withCredentials: true }
       );
       toast.success("Station Deleted Successfully");
